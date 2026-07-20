@@ -238,6 +238,8 @@ A1 NPU 不支持或者效率极低的，但是很常见/使用频率高的算子
 
 07-19 目前情况：我们已经录制好了 Hand Landmarker 数据集，包含 Google MediaPipe 自动标注的 pesudo 标签以及人工精标的标签，完成了 pretrain(geometry+multitask)-finetune 多阶段训练流程。Hand Landmarker 模型精度由于时间压力已经无法更新，目前准备 SSTCN 孤立词分类模型的训练，以及整理分赛区决赛材料。
 
+07-19 目前情况：我们我按成了最后一轮 Hand Landmarker 全流程训练，以及 SSTCN 的训练（我们现在将 SSTCN 模型完全重构为自己的模型，命名为 Gloss Translator）。目前正在抓紧准备分赛区决赛材料。
+
 ## 八、团队信息
 * **团队名称：** PeakDragonSoar (巅峰龙翔)
 * **项目名称：** AetherSign (以太印记)
