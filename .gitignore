@@ -8,6 +8,7 @@ __pycache__
 
 # 提示词
 *prompts*
+AGENTS.md
 
 # 测试数据目录
 test/
