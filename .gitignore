@@ -1,5 +1,16 @@
+# cache
 __pycache__
+
+# 重型文件与压缩包
 *.zip
 *.rar
 *.pdf
+
+# 提示词
 *prompts*
+
+# 测试数据目录
+test/
+
+# 比赛提交材料
+comp_mat/
