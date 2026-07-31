@@ -261,6 +261,13 @@ A1 NPU 不支持或者效率极低的，但是很常见/使用频率高的算子
 - 重训 Hand Landmarker
 - 重训 Gloss Translator，以及增加分类头数量
 
+成员分工
+
+| 成员 | 分工 |
+| --- | --- |
+| draong | 重训 Palm Detector |
+| peak | 重训 Hand Landmarker |
+| soar | 重训 Gloss Translator |
 
 ### 7.2 困难及解决办法
 
