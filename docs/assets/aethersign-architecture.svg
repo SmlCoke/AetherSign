@@ -78,10 +78,10 @@
     <!-- Minimal labels -->
     <g text-anchor="middle">
       <g transform="translate(162 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">CAPTURE</text><text y="405" fill="#67e8f9" font-size="15">SC132GS · 90 FPS</text></g>
-      <g transform="translate(387 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">PALM</text><text y="405" fill="#c4b5fd" font-size="15">Sightloom</text></g>
-      <g transform="translate(612 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">21 POINTS</text><text y="405" fill="#c4b5fd" font-size="15">Jointweave</text></g>
+      <g transform="translate(387 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">PALM</text><text y="405" fill="#c4b5fd" font-size="15">Eos</text></g>
+      <g transform="translate(612 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">21 POINTS</text><text y="405" fill="#c4b5fd" font-size="15">Iris</text></g>
       <g transform="translate(837 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">64 FRAMES</text><text y="405" fill="#93c5fd" font-size="15">Temporal Window</text></g>
-      <g transform="translate(1062 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">GLOSS</text><text y="405" fill="#c4b5fd" font-size="15">Kineglyph</text></g>
+      <g transform="translate(1062 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">GLOSS</text><text y="405" fill="#c4b5fd" font-size="15">Muse</text></g>
       <g transform="translate(1287 0)"><text y="376" fill="#f8fafc" font-size="20" font-weight="700">OUTPUT</text><text y="405" fill="#6ee7b7" font-size="15">OSD</text></g>
     </g>
 

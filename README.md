@@ -45,13 +45,13 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 ## ◈ III. 模型家族
 
-为了让三个模型拥有统一、易记且更具项目辨识度的身份，我们将它们命名为 **Sightloom · Jointweave · Kineglyph**。这些名称始终与 `AetherSign` 组合使用：
+为了让三个模型拥有统一、易记且与项目气质一致的身份，我们将它们命名为 **Eos · Iris · Muse**。三者取自古希腊神话，与 AetherSign 所承载的“以太”意象共同构成“看见、连接、表达”的完整叙事：
 
 | 品牌名 | 技术名 | 职责 | 命名含义 |
 | :-- | :-- | :-- | :-- |
-| **AetherSign Sightloom** | Palm Detector | 从全帧中快速发现双手并生成候选框 | *Sight + Loom*，将高速灰度视觉流“织成”稳定、可追踪的手部候选区域 |
-| **AetherSign Jointweave** | Hand Landmarker | 将手部 ROI 映射为 21 点骨骼拓扑 | *Joint + Weave*，把离散关节点编织成具有空间关系的手部骨架 |
-| **AetherSign Kineglyph** | Gloss Translator | 从时空骨骼序列中识别 Gloss | *Kinetic + Glyph*，将运动轨迹凝练为可被理解的语义符号 |
+| **AetherSign Eos** | Palm Detector | 从全帧中发现双手并生成候选框 | *Eos* 是希腊神话中的**黎明女神**；如第一缕微光划破黑暗，模型首先从灰度画面中发现并定位手掌，为后续链路指明方向 |
+| **AetherSign Iris** | Hand Landmarker | 将手部 ROI 映射为 21 点骨骼拓扑 | *Iris* 是连接天地的**彩虹女神**与诸神信使；模型连接离散关键点，将像素编织成完整、可解释的手部几何结构 |
+| **AetherSign Muse** | Gloss Translator | 从时空骨骼序列中识别 Gloss | *Muse* 是掌管诗歌、语言与灵感的**文艺女神**；模型为物理动作赋予语言与语义，将骨骼序列转化为人类可读的 Gloss |
 
 代码和命令行继续使用 `palm`、`palm_hand`、`fullcascade` 等技术标识；新名称用于 README、演示界面和比赛展示，不改变现有接口。
 
@@ -115,7 +115,7 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 推荐使用启动脚本：
 
 ```sh
-# 完整链路：Sightloom + Jointweave + Kineglyph
+# 完整链路：Eos + Iris + Muse
 ./scripts/run.sh fullcascade
 
 # 仅运行手掌检测
@@ -133,9 +133,9 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 
 | 模式 | 运行链路 | 适合场景 |
 | :-- | :-- | :-- |
-| `palm` | Sightloom | 手掌检测调试与性能基线 |
-| `palm_hand` | Sightloom → Jointweave | 关键点精度与 OSD 骨骼显示 |
-| `fullcascade` | Sightloom → Jointweave → Kineglyph | 完整孤立手语词识别 |
+| `palm` | Eos | 手掌检测调试与性能基线 |
+| `palm_hand` | Eos → Iris | 关键点精度与 OSD 骨骼显示 |
+| `fullcascade` | Eos → Iris → Muse | 完整孤立手语词识别 |
 
 常用调试方式：
 
