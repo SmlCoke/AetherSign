@@ -69,4 +69,7 @@ This folder is dedicated solely to deploying models—previously trained using T
 #### 4.1 Docs Modifying Rules
 
 1. `PALM_DEBUGGING_NOTES.md`: Agents are prohibited from modifying this file.
-2. `README.md`: Agents are permitted to make modifications, provided that it does not disrupt the outline or subheading structure, does not make drastic changes in a single pass, and does not delete content unrelated to the current task.
+2. `README.md`: Agents are permitted to make modifications (such as adjusting system compilation, execution, or quick-run methods), provided that they do not significantly disrupt the outline or subheading structure, avoid making drastic changes in a single pass, and do not delete content unrelated to the current task.
+3. `half-final/SLR_WORKFLOW.md`: This section outlines the workflow of the edge-side scheduler for the sign language recognition system. Whenever the program or script is updated following the completion of a task, this document must be revised to reflect those changes.
+4. `DEVICE_3MODEL_DATAFLOW.md`: This section describes the data flow of the three models on the device. Whenever the data flow is updated following the completion of a task, this document must be revised to reflect those changes.
+5. `PERFORMANCE_MONITOR_USAGE.md`: This section describes the usage of the performance monitor. Whenever the performance monitor is updated following the completion of a task, this document must be revised to reflect those changes.

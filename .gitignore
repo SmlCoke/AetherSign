@@ -16,5 +16,8 @@ test/
 # 比赛提交材料
 comp_mat/
 
+# 答辩材料
+*presentation*
+
 # 模型文件
 models/
