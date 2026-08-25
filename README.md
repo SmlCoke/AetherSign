@@ -116,19 +116,13 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 
 ```sh
 # 完整链路：Eos + Iris + Muse
-./scripts/run.sh fullcascade
+./scripts/run.sh --mode fullcascade
 
 # 仅运行手掌检测
-./scripts/run.sh palm
+./scripts/run.sh --mode palm
 
 # 手掌检测 + 关键点定位
-./scripts/run.sh palm_hand
-```
-
-也可以直接启动可执行文件：
-
-```sh
-./ssne_ai_demo --mode fullcascade --kInferInterval=1
+./scripts/run.sh --mode palm_hand
 ```
 
 | 模式 | 运行链路 | 适合场景 |
@@ -137,22 +131,6 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 | `palm_hand` | Eos → Iris | 关键点精度与 OSD 骨骼显示 |
 | `fullcascade` | Eos → Iris → Muse | 完整孤立手语词识别 |
 
-常用调试方式：
-
-```sh
-# 每 2 帧执行一次 Palm + Hand 推理，仅显示手部关键点
-./scripts/run.sh palm_hand --kInferInterval=2 --osd_mode=hand
-
-# 关闭 OSD，测量完整链路推理性能
-./ssne_ai_demo --mode fullcascade --osd_mode=none \
-  --perf_monitor --perf_interval=30 --perf_sensor_fps=80
-
-# 开启 Fullcascade 详细日志
-./scripts/run.sh fullcascade \
-  --fullcascade_verbose --fullcascade_debug_interval=30
-```
-
-`--osd_mode` 支持 `auto`、`all`、`hand`、`palm` 和 `none`；Performance Monitor 默认关闭，仅建议在性能分析时启用。
 
 ## 🗂 VI. 目录结构
 
@@ -177,23 +155,25 @@ AetherSign/
     └── ssne_ai_demo/
         ├── README.md                 # 端侧程序版本索引
         └── bak/
-            ├── half-final/           # 当前最新完整板端链路
+            ├── final/                # 当前最新完整板端链路
+            ├── half-final/           # 分赛区决赛版本（历史目录名）
             ├── preminilary/          # 初赛版本（历史目录名）
             └── vertical/             # 竖屏 / 方向实验版本
 ```
 
-仓库以**比赛阶段归档**为主，因此历史目录名与版本快照会被保留；开发和复现时请优先从 `half-final` 版本开始。
+仓库以**比赛阶段归档**为主，因此历史目录名与版本快照会被保留；开发和复现时请优先从 `final` 版本开始。
 
 ## 🏁 VII. 全国总决赛阶段计划
 
 - [x] Palm Detector、Hand Landmarker、Gloss Translator 全部完成 A1 NPU 部署
 - [x] 打通 Camera → Skeleton → Gloss → OSD 的板端完整链路
 - [x] 获得 2026 集创赛华东赛区一等奖并晋级全国总决赛
-- [ ] 重训 Palm Detector，改善漏检与摄像距离依赖
-- [ ] 重训 Hand Landmarker，重点扩充数据集多样性并缓解关键点塌缩
-- [ ] 重训 Gloss Translator，增加分类头数量与孤立手语词规模
-- [ ] 对照学术界 / 工业界 Baseline，继续优化精度、P95 延迟与可展示性
-- [ ] 并行完成全国总决赛文档、PPT 与作品材料
+- [x] 重训 Palm Detector，改善漏检与摄像距离依赖
+- [x] 重训 Hand Landmarker，重点扩充数据集多样性并缓解关键点塌缩
+- [x] 重训 Gloss Translator，增加分类头数量与孤立手语词规模
+- [x] 对照学术界 / 工业界 Baseline，继续优化精度、P95 延迟与可展示性
+- [x] 并行完成全国总决赛文档、PPT 与作品材料
+- [x] 参加全国总决赛结束
 
 ## 👥 VIII. 团队信息
 
