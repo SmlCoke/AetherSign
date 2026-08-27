@@ -59,7 +59,7 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 ## 🚀 IV. 快速开始
 
-### 5.1 前置条件
+### 4.1 前置条件
 
 本仓库是项目代码、模型和文档的版本档案，**不能脱离厂商 SDK 独立编译**。开始前请准备：
 
@@ -70,7 +70,7 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 当前最新板端版本位于 [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/)，完整参数说明见其 [README](./src/ssne_ai_demo/bak/final/README.md)。
 
-### 5.2 集成至 A1 SDK
+### 4.2 集成至 A1 SDK
 
 将 `final` 版本的代码放入 SDK 的应用目录：
 
@@ -92,7 +92,7 @@ app_assets/
     └── slr5_fullcascade.m1model
 ```
 
-### 5.3 编译与烧录
+### 4.3 编译与烧录
 
 在 SDK 根目录执行：
 
@@ -103,7 +103,7 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 
 构建完成后，按照厂商工具链流程将镜像烧录至 A1 开发板。SDK 的日常增量编译、镜像位置与启动链路可参考 [`docs/sdk/quick_start.md`](./docs/sdk/quick_start.md)；容器环境见 [`docs/sdk/Docker容器与镜像编译.md`](./docs/sdk/Docker容器与镜像编译.md)。
 
-### 5.4 板端运行
+### 4.4 板端运行
 
 推荐使用启动脚本：
 
