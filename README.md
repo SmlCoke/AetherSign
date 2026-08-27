@@ -60,6 +60,55 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 代码和命令行继续使用 `palm`、`palm_hand`、`fullcascade` 等技术标识；新名称用于 README、演示界面和比赛展示，不改变现有接口。
 
+各模型的最终 benchmark 以及应用实际上板效果见下。
+
+#### Eos 模型 benchmark
+
+<details><summary>Click to expand</summary>
+
+自建 1500 张 1280x720 图像数据集下，**Eos-2.1(Final version) 模型**与其余两种开源手部检测模型的精度对比：
+
+| 模型 | Params | 平均 IOU | Precision | Recall | AP@0.5 | 
+| --- | --- | --- | --- | --- | --- |
+| **Eos-2.1(Final version)** | **1.368M** | 0.861 | 96.03% | **99.57%** | **98.92%** | 
+| HaGRIDv2 YOLOv10n Hand Detector | 2.720M | **0.912** | **99.34%** | 96.26% | 97.91% |
+| 100DOH Faster R-CNN X101-FPN | 104.8 M | 0.865 | 98.59% | 93.75% | 97.52% | 
+
+</details>
+
+#### Iris 模型 benchmark
+
+<details><summary>Click to expand</summary>
+
+自建 402 张 Hand ROI 图像数据集下，**Iris-2.0(Final version) 模型**与其余几种开源手部关键点检测模型的精度对比：
+
+| 模型 | Mean pixel error | P95 pixel error | Handedness Acc | Params | delay@A1 |
+|---|---|---|---|---|---|
+| **AetherSign: Iris-2.0-lite** | 10.43(↓52.5%) | 24.98(↓54.6%) | 89.55%(↓2.4%) | **0.85 M(↓55.5%)** | **≈20 ms** |
+| **AetherSign: Iris-2.0-pro** | 10.14(↓53.8%) | 23.77(↓56.8%) | 81.59%(↓11.1%) | 1.91 M | ≈22 ms |
+| **AetherSign: Iris-2.0-max** | 9.71(↓55.8%) | 23.26(↓57.7%) | 98.26%(↑7.0%) | 1.91 M | ≈22 ms |
+| MediaPipe Hand TFLite | 7.46 | 20.95 | **99.00%** | 2.71 M | N/A |
+| RTMPose-m Hand5 | **6.37** | **18.76** | N/A | 13.76 M | N/A |
+| HaMeR-CVPR24 | 7.89 | 20.06 | N/A | 672 M | N/A |
+| Hamba-NeurIPS24 | 7.91 | 20.28 | N/A | 733 M | N/A |
+| **Iris-1.0（分赛区版本 Baseline）** | 21.97 | 55.01 | 91.79% | 1.91M | ≈ 25ms |
+
+</details>
+
+#### 应用实际上板表现
+
+<details><summary>Click to expand</summary>
+
+AetherSign 实时手语识别系统上板后的工作表现如下。
+
+| 模式 | 有效测试时长 | 应用FPS | R=FPSapp/90 | E2E平均 | E2E P95 | FPS P5-P95 | Hand触发率 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Palm | 98.4s | 27.38 | 0.304 | 36.48ms | 36.75ms | 27.21-27.59 | 0% |
+| Palm+Hand | 65.8s | 14.77 | 0.164 | 67.69ms | 78.00ms | 12.82-27.59 | 93.1% |
+| Fullcascade | 80.9s | 19.47 | 0.216 | 51.33ms | 78.00ms | 12.82-27.78 | 37.7% |
+
+</details>
+
 ---
 
 ## 🚀 IV. 快速开始
@@ -129,6 +178,8 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 | `palm_hand` | Eos → Iris | 关键点精度与 OSD 骨骼显示 |
 | `fullcascade` | Eos → Iris → Muse | 完整孤立手语词识别 |
 
+详细命令可以参考 [TERMINAL_COMMANDS.md](./src/ssne_ai_demo/bak/final/TERMINAL_COMMANDS.md)。
+
 ---
 
 ## 🗂 V. 目录结构
@@ -164,7 +215,7 @@ AetherSign/
 - [x] 2026-05-07: 初赛结束
 - [x] 2026-06-09: 成功晋级分赛区决赛线下参赛
 - [x] 2026-07-24: 华东分赛区决赛结束，获**华东分赛区一等奖**🏅
-- [x] 2026-08-25: 全国总决赛结束，获**全国总决赛一等奖**🏅
+- [x] 2026-08-25: 全国总决赛结束，获**全国总决赛一等奖**🏆️
 
 ---
 
