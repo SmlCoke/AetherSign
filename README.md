@@ -1,3 +1,5 @@
+<h1 align="center">AetherSign（以太印记）</h1>
+
 <div align="center">
 
 <img src="./docs/assets/aethersign-hero.svg" alt="AetherSign — 从动作到语义的端侧手语识别系统" width="100%" />
@@ -33,6 +35,8 @@
 | 板端模型 | Palm Detector → Hand Landmarker → Gloss Translator |
 | 性能实测 | P95 延迟：`palm` ≈ 36 ms · `palm_hand` ≈ 78 ms · `fullcascade` ≈ 78 ms |
 | 目标场景 | 机器人指令理解、无障碍交互、强光 / 暗光 / 红外环境 |
+
+最终版本的项目介绍文档：[project-12.md](./docs/project/project-12.md)。
 
 ---
 
