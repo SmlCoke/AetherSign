@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /app_demo/scripts/run.sh --mode fullcascade --no-perf "$@"

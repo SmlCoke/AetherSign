@@ -1,0 +1,20 @@
+[PALM_DEMO] Exit command received.
+[PERF_RAW_META] mode=palm_hand format=raw_time_hist_v2 samples=973 frames=973 capture_failures=0 elapsed_ms=74549.522149 fps_sensor=90.000000 hist_bin_us=250 hist_bins=2048
+[PERF_RAW_HIST] mode=palm_hand metric=frame_period_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:1,204:2,205:11,206:5,207:8,221:1,223:1,224:1,225:9,226:7,229:2,230:6,273:1,284:2,285:2,286:3,289:4,291:3,292:9,293:7,294:4,295:6,296:12,297:11,298:13,299:10,300:9,301:8,302:5,303:10,304:8,305:6,306:4,307:10,308:8,309:25,310:45,311:75,312:102,313:61,314:69,315:112,316:81,317:52,318:49,319:66,320:26,321:1
+[PERF_RAW_HIST] mode=palm_hand metric=e2e_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=204:3,205:12,206:5,207:7,221:1,223:1,224:3,225:7,226:7,228:1,229:1,230:6,273:1,284:2,285:4,286:1,289:4,291:4,292:9,293:7,294:3,295:9,296:11,297:11,298:13,299:8,300:10,301:8,302:5,303:9,304:8,305:6,306:6,307:8,308:10,309:27,310:42,311:78,312:106,313:57,314:72,315:113,316:77,317:53,318:49,319:64,320:23,321:1
+[PERF_RAW_HIST] mode=palm_hand metric=cap_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:20,1:953
+[PERF_RAW_HIST] mode=palm_hand metric=palm_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=137:365,138:605,139:3
+[PERF_RAW_HIST] mode=palm_hand metric=palm_pre_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=64:131,65:833,66:9
+[PERF_RAW_HIST] mode=palm_hand metric=palm_infer_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=72:973
+[PERF_RAW_HIST] mode=palm_hand metric=palm_post_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:142,1:831
+[PERF_RAW_HIST] mode=palm_hand metric=hand_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=65:10,66:5,67:6,68:6,81:1,83:1,84:5,85:11,86:1,88:1,89:5,90:2,133:1,142:1,144:5,145:1,147:3,148:1,149:1,151:8,152:9,153:5,154:5,155:17,156:8,157:14,158:13,159:11,160:2,161:7,162:9,163:8,164:6,165:4,166:10,167:11,168:35,169:43,170:83,171:105,172:51,173:75,174:119,175:59,176:65,177:54,178:45,179:24,180:1
+[PERF_RAW_HIST] mode=palm_hand metric=gloss_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:973
+[PERF_RAW_HIST] mode=palm_hand metric=osd_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=1:26,2:69,3:868,4:10
+[PERF_RAW_HIST] mode=palm_hand metric=osd_clear_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:973
+[PERF_RAW_HIST] mode=palm_hand metric=osd_palm_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:871,1:100,2:2
+[PERF_RAW_HIST] mode=palm_hand metric=osd_hand_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:96,1:877
+[PERF_RAW_HIST] mode=palm_hand metric=osd_flush_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=1:946,2:27
+[PERF_RAW_HIST] mode=palm_hand metric=osd_texture_ms bin_us=250 hist_bins=2048 count=973 part=0 last=1 bins=0:973
+[PERF_RAW_END] mode=palm_hand samples=973 status=complete
+[IMAGEPROCESSOR] Online pipeline closed.
+[PALM_DEMO] Demo stopped.
