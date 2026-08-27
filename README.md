@@ -39,7 +39,7 @@
 ## ⬡ II. 系统架构
 
 <p align="center">
-  <img src="./docs/assets/aethersign-workflow.png" alt="AetherSign 系统架构：SC132GS、CPU/NPU 异构串行推理与 OSD 输出" width="100%" />
+  <img src="./docs/assets/aethersign-workflow.svg" alt="AetherSign 系统架构：SC132GS、CPU/NPU 异构串行推理与 OSD 输出" width="100%" />
 </p>
 
 AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：SC132GS 捕获高速灰度帧，**Eos 模型**定位手部，**Iris 模型**提取每只手 21 个关键点，控制器维护 64 帧特征窗口，最后由**Muse 模型**完成孤立词分类并通过 OSD 输出结果。
@@ -48,7 +48,7 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 系统上板后的**端侧数据流**：
 
-![AetherSign 端侧数据流](./docs/assets/aethersign-heterogeneous-serial-datastream.png)
+![AetherSign 端侧数据流](./docs/assets/aethersign-heterogeneous-serial-datastream.svg)
 
 ---
 
