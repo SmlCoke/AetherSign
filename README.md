@@ -10,7 +10,7 @@
 
 *“让涌动的情绪，找到表达的声音。”*
 
-[项目简介](#-项目简介) · [系统架构](#-系统架构) · [模型家族](#-模型家族) · [核心技术亮点](#-核心技术亮点) · [快速开始](#-快速开始) · [目录结构](#-目录结构)
+[项目简介](#-I-项目简介) · [系统架构](#-II-系统架构) · [模型家族](#-III-模型家族) · [快速开始](#-IV-快速开始) · [目录结构](#-V-目录结构)
 
 </div>
 
@@ -22,7 +22,7 @@
 
 与依赖 RGB 视频和云端推理的常规方案不同，AetherSign 将连续图像尽早压缩为低维、可解释的骨骼特征，再通过轻量时空网络理解动作。配合灰度成像与红外补光，系统面向强光、暗光、纯黑和快速运动等复杂条件，为服务机器人、特种机器人与无障碍交互终端提供低延迟的“动作到语义”接口。
 
-> 分赛区版本已将 **Palm Detector + Hand Landmarker + Gloss Translator** 三个模型全部部署至 A1 NPU，并打通板端孤立手语词识别链路。全国总决赛阶段正在重训三个模型，并扩展 Gloss Translator 的分类头与指令词表。
+> 最终版本已将 **Eos(Palm Detector) + Iris(Hand Landmarker) + Muse(Gloss Translator)** 三个模型全部部署至 A1 NPU，打通板端孤立手语词识别链路。目前 `Fullcascade` 模式下应用平均帧率约为 19 fps。
 
 | 维度 | 当前系统 |
 | :-- | :-- |
@@ -30,18 +30,20 @@
 | 边缘算力 | 飞凌微 A1 Vision，0.8 TOPS @ INT8 |
 | 推理链路 | 手掌检测 → 21 点手部关键点 → 54 点时空特征 → Gloss 分类 |
 | 板端模型 | Palm Detector → Hand Landmarker → Gloss Translator |
-| 性能实测 | P95 延迟：`palm` ≈ 17.7 ms · `palm_hand` ≈ 60 ms · `fullcascade` ≈ 62 ms |
+| 性能实测 | P95 延迟：`palm` ≈ 36 ms · `palm_hand` ≈ 78 ms · `fullcascade` ≈ 78 ms |
 | 目标场景 | 机器人指令理解、无障碍交互、强光 / 暗光 / 红外环境 |
+
+---
 
 ## ⬡ II. 系统架构
 
 <p align="center">
-  <img src="./docs/assets/aethersign-architecture.svg" alt="AetherSign 系统架构：SC132GS、CPU/NPU 异构流水线与 OSD 输出" width="100%" />
+  <img src="./docs/assets/aethersign-workflow.png" alt="AetherSign 系统架构：SC132GS、CPU/NPU 异构串行推理与 OSD 输出" width="100%" />
 </p>
 
-AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：SC132GS 捕获高速灰度帧，Palm Detector 定位手部，Hand Landmarker 提取每只手 21 个关键点，控制器维护 64 帧特征窗口，最后由 Gloss Translator 完成孤立词分类并通过 OSD 输出结果。
+AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：SC132GS 捕获高速灰度帧，**Eos 模型**定位手部，**Iris 模型**提取每只手 21 个关键点，控制器维护 64 帧特征窗口，最后由**Muse 模型**完成孤立词分类并通过 OSD 输出结果。
 
-视觉模型在 A1 NPU 上级联运行；CPU 负责预后处理、坐标变换与特征缓存。`kInferInterval` 可调整推理间隔，Performance Monitor 则记录三种运行模式的 P95 延迟与分阶段耗时。
+视觉模型在 A1 NPU 上级联运行；CPU 负责预后处理、坐标变换与特征缓存。`mode` 控制切换工作模式，`kInferInterval` 可调整推理间隔，Performance Monitor 记录三种运行模式的 P95 延迟与分阶段耗时。
 
 ## ◈ III. 模型家族
 
@@ -55,9 +57,7 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 代码和命令行继续使用 `palm`、`palm_hand`、`fullcascade` 等技术标识；新名称用于 README、演示界面和比赛展示，不改变现有接口。
 
-## ⚡ IV. 核心技术亮点
-
-## 🚀 V. 快速开始
+## 🚀 IV. 快速开始
 
 ### 5.1 前置条件
 
@@ -68,11 +68,11 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 - 厂商 SDK 头文件，尤其是 `ssne_api.h` 与 `osd_lib_api.h`；
 - 板端模型与 OSD 资源文件。
 
-当前最新板端版本位于 [`src/ssne_ai_demo/bak/half-final/`](./src/ssne_ai_demo/bak/half-final/)，完整参数说明见其 [README](./src/ssne_ai_demo/bak/half-final/README.md)。
+当前最新板端版本位于 [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/)，完整参数说明见其 [README](./src/ssne_ai_demo/bak/final/README.md)。
 
 ### 5.2 集成至 A1 SDK
 
-将 `half-final` 版本的代码放入 SDK 的应用目录：
+将 `final` 版本的代码放入 SDK 的应用目录：
 
 ```text
 A1_SDK_SC132GS/
@@ -85,18 +85,11 @@ A1_SDK_SC132GS/
 ```text
 app_assets/
 ├── colorLUT.sscl
+├── osd_labels/
 └── models/
     ├── palm.m1model
     ├── hand.m1model
     └── slr5_fullcascade.m1model
-```
-
-Gloss 分类器应满足当前板端契约：
-
-```text
-INPUT0:  [1, 4, 54, 64]
-OUTPUT0: [1, 5, 1, 1]
-classes: 0=rain, 1=long, 2=short, 3=go, 4=thick
 ```
 
 ### 5.3 编译与烧录
@@ -108,7 +101,7 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 ./scripts/a1_sc132gs_build.sh
 ```
 
-构建完成后，按照厂商工具链流程将镜像烧录至 A1 开发板。SDK 的日常增量编译、镜像位置与启动链路可参考 [`docs/sdk/quick_start.md`](./docs/sdk/quick_start.md)；容器环境见 [`docs/sdk/Docker容器与镜像编译.md`](./docs/sdk/Docker%E5%AE%B9%E5%99%A8%E4%B8%8E%E9%95%9C%E5%83%8F%E7%BC%96%E8%AF%91.md)。
+构建完成后，按照厂商工具链流程将镜像烧录至 A1 开发板。SDK 的日常增量编译、镜像位置与启动链路可参考 [`docs/sdk/quick_start.md`](./docs/sdk/quick_start.md)；容器环境见 [`docs/sdk/Docker容器与镜像编译.md`](./docs/sdk/Docker容器与镜像编译.md)。
 
 ### 5.4 板端运行
 
@@ -132,20 +125,15 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 | `fullcascade` | Eos → Iris → Muse | 完整孤立手语词识别 |
 
 
-## 🗂 VI. 目录结构
+## 🗂 V. 目录结构
 
 ```text
 AetherSign/
 ├── README.md                         # 项目主页
 ├── docs/
 │   ├── assets/                       # README 与答辩视觉素材
-│   │   ├── aethersign-logo-minimal.svg
-│   │   ├── aethersign-hero.svg
-│   │   ├── aethersign-architecture.svg
-│   │   └── figures/                  # 原始功能 / 调度 / 数据流与参考图
-│   ├── project/
-│   │   └── project-11.md             # 最新项目背景与进展
-│   ├── problem/                      # 赛题说明与约束
+│   ├── project/                      # 最新项目背景与进展     
+│   ├── problem/                      # 赛题说明
 │   ├── sdk/                          # A1 SDK、构建与模型转换文档
 │   └── comp_mat/                     # 各阶段比赛提交材料
 ├── models/
@@ -163,7 +151,7 @@ AetherSign/
 
 仓库以**比赛阶段归档**为主，因此历史目录名与版本快照会被保留；开发和复现时请优先从 `final` 版本开始。
 
-## 🏁 VII. 全国总决赛阶段计划
+## 🏁 VI. 全国总决赛阶段计划
 
 - [x] Palm Detector、Hand Landmarker、Gloss Translator 全部完成 A1 NPU 部署
 - [x] 打通 Camera → Skeleton → Gloss → OSD 的板端完整链路
@@ -175,10 +163,12 @@ AetherSign/
 - [x] 并行完成全国总决赛文档、PPT 与作品材料
 - [x] 参加全国总决赛结束
 
-## 👥 VIII. 团队信息
+## 👥 VII. 团队信息
 
 - **团队名称：** PeakDragonSoar（巅峰龙翔）
 - **项目名称：** AetherSign（以太印记）
 - **团队成员：** 3 名来自上海交通大学 2023 级微电子科学与工程专业的本科生
 
-我们希望在有限算力与真实物理环境之间，找到一种更轻、更快、更可靠的人机沟通方式——让每一个动作，都能抵达它所表达的意义。
+![](./docs/assets/posters/aethersign-poster-edge.png)
+
+*我们希望在有限算力与真实物理环境之间，找到一种更轻、更快、更可靠的人机沟通方式——让每一个动作，都能抵达它所表达的意义。*
