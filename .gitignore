@@ -1,23 +1,24 @@
 # cache
 __pycache__
 
-# 重型文件与压缩包
+# heavy files or compressed files
 *.zip
 *.rar
 *.pdf
 
-# 提示词
+# prompts
 *prompts*
 AGENTS.md
 
-# 测试数据目录
+# test data
 test/
 
-# 比赛提交材料
+# competition upload materials
 comp_mat/
 
-# 答辩材料
+# Presentation materials
 *presentation*
+reports/
 
-# 模型文件
+# model file
 models/
