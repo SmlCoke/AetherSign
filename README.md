@@ -46,6 +46,10 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 视觉模型在 A1 NPU 上级联运行；CPU 负责预后处理、坐标变换与特征缓存。`mode` 控制切换工作模式，`kInferInterval` 可调整推理间隔，Performance Monitor 记录三种运行模式的 P95 延迟与分阶段耗时。
 
+系统上板后的**端侧数据流**：
+
+![AetherSign 端侧数据流](./docs/assets/aethersign-heterogeneous-serial-datastream.png)
+
 ---
 
 ## ◈ III. 模型家族
