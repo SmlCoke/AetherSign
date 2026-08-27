@@ -112,7 +112,7 @@ A1 NPU 不支持或者效率极低的，但是很常见/使用频率高的算子
 
 - Method1: MS-TCN，获取：https://github.com/yabufarha/ms-tcn
 - Method2: Causal TCN，获取：https://github.com/philipperemy/keras-tcn
-- Method3: SSTCN, 获取: https://github.com/jackyjsy/CVPR21Chal-SLR(孤立词分类)
+- Method3: SSTCN, 获取: https://github.com/jackyjsy/CVPR21Chal-SLR (孤立词分类)
 
 这个阶段的网络结构比较简单，算力要求和延迟低。但是必须自己训练，这些网络不是专用的 **坐标->手语词汇表概率矩阵** 逻辑。
 
@@ -155,13 +155,13 @@ A1 NPU 不支持或者效率极低的，但是很常见/使用频率高的算子
 
 - SLR500(**重要**)：大规模数据集，500词，125, 000视频，包含 RGB、深度图 (Depth) 以及骨架
 (Skeleton) 3种模态，获取途径： https://ustc-slr.github.io/datasets/2015_csl/ ，需要签署协议，
-向USTC申请。该协议必须由全职员工签署（学生签署不予接受）。**于0419获得该数据集**
+向USTC申请。该协议必须由全职员工签署（学生签署不予接受）。**于0419获得该数据集（目前最高价值）**
 
 #### (2) 中文连续手语数据集
 
 - CSL-Daily(**重要**)：大规模数据集，能够用于手语翻译，2000词，20, 654个视频，30fps。获取途径：
  https://ustc-slr.github.io/datasets/2021_csl_daily/ ，申请方法同上。**于0419获得该数据集**
-- CE-CSL：大规模数据集，4973个训练集视频、500个test集视频（PDF中显示为513个）、516个dev集视频。训练集一共3840个词（PDF中显示为3800词）、dev集一共821个词、test集一共757个词。标注含有自然语言标注和Gloss标注，输入模态为RGB视频，没有提供关键点序列，但是已经通过Mediapipe提取好了每个视频的关键点序列。获取途径：https://github.com/woshisad159/TFNet.git . **目前主要使用该数据集（目前最高价值），优点是标注清晰且视频分辨率较高。已经保存到 Peak 本地、Quark 网盘以及 AutoDL 服务器**。该数据集的关键点个数为65，分别是pos的23个关键点，以及左右手各21各关键点，因此特征向量维度：130。
+- CE-CSL：大规模数据集，4973个训练集视频、500个test集视频（PDF中显示为513个）、516个dev集视频。训练集一共3840个词（PDF中显示为3800词）、dev集一共821个词、test集一共757个词。标注含有自然语言标注和Gloss标注，输入模态为RGB视频，没有提供关键点序列，但是已经通过Mediapipe提取好了每个视频的关键点序列。获取途径：https://github.com/woshisad159/TFNet.git . **已经保存到 Peak 本地、Quark 网盘。但目前放弃使用该数据集，因为 Gloss 重复次数较少、拖尾严重**。该数据集的关键点个数为65，分别是pos的23个关键点，以及左右手各21各关键点，因此特征向量维度：130。
 
 ## 六、 鲁棒性与三类异常处理机制
 
@@ -289,7 +289,7 @@ A1 NPU 不支持或者效率极低的，但是很常见/使用频率高的算子
 1. **模型精度**：
     1. 板端运行时，Hand Landmarker 模型相比初赛已经有很大提升，但是部分手势仍然**偏差较大/塌缩严重**；
     2. Palm Detector 模型依旧是初赛的版本，没有重训，**存在一定漏检情况（但优于 Google MediaPipe）**，且**高度依赖于特定的摄像头距离**，否则检测成功率大幅下降。
-    3. 根据以上亮点，Gloss Translator 模型的分类准确率也不理想，板端运行时状态糟糕。
+    3. 根据以上两点，Gloss Translator 模型的分类准确率也不理想，板端运行时状态糟糕。
 2. 目前**最严重的瓶颈是 Hand Landmarker 的精度提升**，目前已经尝试了多重手段：
     1. pretrain (geometry+multitask) -> multi-finetune 多阶段训练策略
     2. Google MediaPipe 自动标注 pesudo 标签，扩充 pretrain 数据集
