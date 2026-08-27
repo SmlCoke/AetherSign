@@ -22,7 +22,8 @@
 
 与依赖 RGB 视频和云端推理的常规方案不同，AetherSign 将连续图像尽早压缩为低维、可解释的骨骼特征，再通过轻量时空网络理解动作。配合灰度成像与红外补光，系统面向强光、暗光、纯黑和快速运动等复杂条件，为服务机器人、特种机器人与无障碍交互终端提供低延迟的“动作到语义”接口。
 
-> 最终版本已将 **Eos(Palm Detector) + Iris(Hand Landmarker) + Muse(Gloss Translator)** 三个模型全部部署至 A1 NPU，打通板端孤立手语词识别链路。目前 `Fullcascade` 模式下应用平均帧率约为 19 fps。
+> [!NOTE]
+> 最终版本已将 **Eos(Palm Detector) + Iris(Hand Landmarker) + Muse(Gloss Translator)** 三个模型全部部署至 A1 NPU，打通板端孤立手语词识别链路。目前 **Fullcascade 模式**下应用平均帧率约为 19 fps。
 
 | 维度 | 当前系统 |
 | :-- | :-- |
@@ -45,6 +46,8 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 
 视觉模型在 A1 NPU 上级联运行；CPU 负责预后处理、坐标变换与特征缓存。`mode` 控制切换工作模式，`kInferInterval` 可调整推理间隔，Performance Monitor 记录三种运行模式的 P95 延迟与分阶段耗时。
 
+---
+
 ## ◈ III. 模型家族
 
 为了让三个模型拥有统一、易记且与项目气质一致的身份，我们将它们命名为 **Eos · Iris · Muse**。三者取自古希腊神话，与 AetherSign 所承载的“以太”意象共同构成“看见、连接、表达”的完整叙事：
@@ -56,6 +59,8 @@ AetherSign 采用 **Sign → Skeleton → Gloss** 的三级视觉压缩路径：
 | **AetherSign Muse** | Gloss Translator | 从时空骨骼序列中识别 Gloss | *Muse* 是掌管诗歌、语言与灵感的**文艺女神**；模型为物理动作赋予语言与语义，将骨骼序列转化为人类可读的 Gloss |
 
 代码和命令行继续使用 `palm`、`palm_hand`、`fullcascade` 等技术标识；新名称用于 README、演示界面和比赛展示，不改变现有接口。
+
+---
 
 ## 🚀 IV. 快速开始
 
@@ -124,6 +129,7 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 | `palm_hand` | Eos → Iris | 关键点精度与 OSD 骨骼显示 |
 | `fullcascade` | Eos → Iris → Muse | 完整孤立手语词识别 |
 
+---
 
 ## 🗂 V. 目录结构
 
@@ -151,17 +157,16 @@ AetherSign/
 
 仓库以**比赛阶段归档**为主，因此历史目录名与版本快照会被保留；开发和复现时请优先从 `final` 版本开始。
 
-## 🏁 VI. 全国总决赛阶段计划
+---
 
-- [x] Palm Detector、Hand Landmarker、Gloss Translator 全部完成 A1 NPU 部署
-- [x] 打通 Camera → Skeleton → Gloss → OSD 的板端完整链路
-- [x] 获得 2026 集创赛华东赛区一等奖并晋级全国总决赛
-- [x] 重训 Palm Detector，改善漏检与摄像距离依赖
-- [x] 重训 Hand Landmarker，重点扩充数据集多样性并缓解关键点塌缩
-- [x] 重训 Gloss Translator，增加分类头数量与孤立手语词规模
-- [x] 对照学术界 / 工业界 Baseline，继续优化精度、P95 延迟与可展示性
-- [x] 并行完成全国总决赛文档、PPT 与作品材料
-- [x] 参加全国总决赛结束
+## 🏁 VI. 参赛历程
+
+- [x] 2026-05-07: 初赛结束
+- [x] 2026-06-09: 成功晋级分赛区决赛线下参赛
+- [x] 2026-07-24: 华东分赛区决赛结束，获**华东分赛区一等奖**🏅
+- [x] 2026-08-25: 全国总决赛结束，获**全国总决赛一等奖**🏅
+
+---
 
 ## 👥 VII. 团队信息
 
