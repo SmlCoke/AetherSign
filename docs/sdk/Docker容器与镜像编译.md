@@ -32,6 +32,7 @@ root@978515f4c2cf:/home/smartsens_flying_chip_a1_sdk# ./scripts/a1_sc132gs_build
 ## III. 如果 Docker 容器损毁了怎么办？
 
 如果不小心执行了 `docker rm -f A1_Builder` 把容器彻底删除了，或者电脑重装系统了，只要 `data` 文件夹还在那几个小时编译出的所有 `.o` 中间文件、工具链、源码就全都在。
+
 *   **重新编译**：
     只需要在 `D:\Docker\project\smartsen\` 目录下，重新运行一次启动命令：
     `docker run -itd --name A1_Builder_New -v "./data:/home/smartsens_flying_chip_a1_sdk" -p 8080:8080 a1-sdk-builder`
