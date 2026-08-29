@@ -12,7 +12,7 @@
 
 *“让涌动的情绪，找到表达的声音。”*
 
-[项目简介](#-I-项目简介) · [系统架构](#-II-系统架构) · [模型家族](#-III-模型家族) · [快速开始](#-IV-快速开始) · [目录结构](#-V-目录结构)
+[项目简介](#-I-项目简介) · [系统架构](#-II-系统架构) · [模型家族](#-III-模型家族) · [快速开始](#-IV-快速开始) · [目录结构](#-V-目录结构) · [复现指南](#-VI-复现指南)
 
 </div>
 
@@ -216,9 +216,57 @@ AetherSign/
 
 仓库以**比赛阶段归档**为主，因此历史目录名与版本快照会被保留；开发和复现时请优先从 `final` 版本开始。
 
+当前仓库的 `src` 部分仅存放端侧调度程序，完整的模型训练程序参见下方的 [复现指南](#-VI-复现指南)。
+
 ---
 
-## 🏁 VI. 参赛历程
+## 🔬 VI. 复现指南
+
+AetherSign 项目按照：Eos → Iris → Muse 的顺序完成训练和部署。每个模型的训练、评估和推理代码均在独立仓库中，且均提供了 README 文档说明。
+
+<table>
+  <tr>
+    <th>组件</th>
+    <th>仓库</th>
+    <th>描述</th>
+    <th>版本</th>
+  </tr>
+  <tr>
+    <td><strong>Eos(Palm Detector)</strong></td>
+    <td><a href="https://github.com/sui-yu-x/Eos">https://github.com/sui-yu-x/Eos</a></td>
+    <td>Eos模型的<strong>训练-导出</strong>系统</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td rowspan="3"><strong>Iris(Hand Landmarker)</strong></td>
+    <td><a href="https://github.com/SmlCoke/HandLandmarksFab">https://github.com/SmlCoke/HandLandmarksFab</a></td>
+    <td>Iris 模型训练的<strong>数据集半自动化标注系统</strong>：HLMF</td>
+    <td>HLMF-3.0-final</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/SmlCoke/HandClassifierFab">https://github.com/SmlCoke/HandClassifierFab</a></td>
+    <td>Iris 模型数据集制作系统的辅助模型：<strong>Hand Classifier</strong> 模型的训练-导出系统</td>
+    <td>HCF-1.0-final</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/SmlCoke/HandLandmarkerLab">https://github.com/SmlCoke/HandLandmarkerLab</a></td>
+    <td>Iris 模型<strong>训练系统</strong>：<strong>HLML</strong></td>
+    <td>HLML-4.0-final</td>
+  </tr>
+  <tr>
+    <td><strong>Muse(Gloss Translator)</strong></td>
+    <td><a href="https://github.com/zhangchengxiang316/Muse">https://github.com/zhangchengxiang316/Muse</a></td>
+    <td>Muse 模型的<strong>训练-导出系统</strong></td>
+    <td>None</td>
+  </tr>
+</table>
+
+> [!ATTENTION]
+> **Hand Classifier(HCF)** 是为了配合 RTMPose/HaMeR 做 handedness / hand presence 标注而训练的**辅助教师模型**，**非实际正式部署**的模型。
+
+---
+
+## 🏁 VII. 参赛历程
 
 - [x] 2026-05-07: 初赛结束
 - [x] 2026-06-09: 成功晋级分赛区决赛线下参赛
@@ -227,12 +275,57 @@ AetherSign/
 
 ---
 
-## 👥 VII. 团队信息
+
+## 🙏 VIII. 致谢
+
+AetherSign 的诞生，离不开众多开源项目、科研团队、数据集以及个人贡献者的支持与努力。
+
+### 8.1 开源项目与教师模型
+
+在开发 AetherSign 的过程中，我们深受以下项目和模型的启发与支持，特此致谢：
+
+- [Google MediaPipe](https://github.com/google-ai-edge/mediapipe) — 本项目实现手部检测与关键点定位功能的重要参考，同时也充当了 **“本项目第一个教师模型”** 的角色，在**初赛以及分赛区决赛推进**过程中发挥了重要作用。
+- [RTMPose / MMPose](https://github.com/open-mmlab/mmpose) — 在构建手部关键点标注（Hand Landmarker）的训练数据集时，我们将其作为教师模型使用。得益于 RTMPose-m Hand5 模型在 **SC132GS 域普通样本上的高精度表现**，我们就此正式确立了**多教师模型互补+几何约束筛选的半自动化标注策略**。
+- [HaMeR / CVPR24](https://github.com/geopavlakos/hamer) — 同样作为手指关键点的教师模型，HaMeR 在 SC132GS 域的**困难/遮挡样本上表现优异，泛化性较强**，是**全国总决赛阶段最终采纳的主教师模型**。
+- [Hamba / NeurIPS24](https://github.com/humansensinglab/Hamba) — 同样是手指关键点检测的教师模型，为我们的 Iris 模型 Benchmark 提供了重要的参考数据。
+- [SSTCN / CVPR21Chal-SLR](https://github.com/jackyjsy/CVPR21Chal-SLR) — 在**时间序列建模和孤立手语分类流程**的设计中，该项目提供了重要的参考思路。
+
+
+关于上述项目的开源许可证及引用规范，请参阅其各自的代码仓库和相关学术出版物。
+
+### 8.2 数据集
+
+我们要特别感谢中国科学技术大学（USTC）视觉手语研究组（VSLRG），让我们得以使用以下中国手语数据集：
+
+- [CSL / SLR500](https://ustc-slr.github.io/datasets/2015_csl/)
+- [CSL-Daily](https://ustc-slr.github.io/datasets/2021_csl_daily/)
+
+请注意，这些数据集的使用需遵循其各自的发布协议。
+AetherSign **不会**重新分发原始数据集。
+如果您希望获取这些数据，请访问官方数据集页面进行申请，并严格遵守相关的使用条款。
+
+### 8.3 贡献者
+
+AetherSign 由 **PeakDragonSoar团队** 主导开发。
 
 - **团队名称：** PeakDragonSoar（巅峰龙翔）
 - **项目名称：** AetherSign（以太印记）
-- **团队成员：** 3 名来自上海交通大学 2023 级微电子科学与工程专业的本科生
+- **团队成员：** 3 名来自上海交通大学 2023 级微电子科学与工程专业的本科生:
+    - [@SmlCoke](https://github.com/SmlCoke) — 负责**手指关键点检测模型 Iris 的构建**：HLMF 系统、HLML 系统以及 HCF 训练。
+    - [@sui-yu-x](https://github.com/sui-yu-x) — 负责**手部检测模型 Eos 的构建**。
+    - [@zhangchengxiang316](https://github.com/zhangchengxiang316) — 负责**孤立手语词分类模型 Muse 的构建以及端侧调度程序的集成**
+
+感谢所有团队成员，正是他们在 AetherSign 的开发、部署、性能优化以及竞赛参赛等各个阶段付出的辛勤努力，才让这个项目得以完善。
+
 
 ![](./docs/assets/posters/aethersign-poster-edge.png)
 
 *我们希望在有限算力与真实物理环境之间，找到一种更轻、更快、更可靠的人机沟通方式——让每一个动作，都能抵达它所表达的意义。*
+
+<div align="center">
+
+<img src="./docs/assets/aethersign-logo-minimal.svg" alt="AetherSign" width="52" />
+
+<sub>AetherSign · Eos → Iris → Muse · 最终归档</sub>
+
+</div>
