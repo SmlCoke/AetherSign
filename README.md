@@ -290,19 +290,29 @@ AetherSign 的诞生，离不开众多开源项目、科研团队、数据集以
 - [Hamba / NeurIPS24](https://github.com/humansensinglab/Hamba) — 同样是手指关键点检测的教师模型，为我们的 Iris 模型 Benchmark 提供了重要的参考数据。
 - [SSTCN / CVPR21Chal-SLR](https://github.com/jackyjsy/CVPR21Chal-SLR) — 在**时间序列建模和孤立手语分类流程**的设计中，该项目提供了重要的参考思路。
 
-
-关于上述项目的开源许可证及引用规范，请参阅其各自的代码仓库和相关学术出版物。
+> [!IMPORTANT]
+> 关于上述项目的开源许可证及引用规范，请参阅其各自的代码仓库和相关学术出版物。
 
 ### 8.2 数据集
 
 我们要特别感谢中国科学技术大学（USTC）视觉手语研究组（VSLRG），让我们得以使用以下中国手语数据集：
 
-- [CSL / SLR500](https://ustc-slr.github.io/datasets/2015_csl/)
-- [CSL-Daily](https://ustc-slr.github.io/datasets/2021_csl_daily/)
+- **SLR500**: 中文孤立词手语数据集，获取途径：[https://ustc-slr.github.io/datasets/2015_csl/](https://ustc-slr.github.io/datasets/2015_csl/)
+- **CSL-Daily**: 中文连续手语数据集，获取途径：[https://ustc-slr.github.io/datasets/2021_csl_daily/](https://ustc-slr.github.io/datasets/2021_csl_daily/)
 
-请注意，这些数据集的使用需遵循其各自的发布协议。
-AetherSign **不会**重新分发原始数据集。
-如果您希望获取这些数据，请访问官方数据集页面进行申请，并严格遵守相关的使用条款。
+以及如下项目/开源数据集也为我们项目初期做关于连续手语识别相关探索做出了重要贡献：
+
+- **RWTH-BOSTON-104**: 美国连续手语数据集，获取途径：[https://www-i6.informatik.rwth-aachen.de/web/Software/Databases/Signlanguage/details/rwth-boston-104/index.php](https://www-i6.informatik.rwth-aachen.de/web/Software/Databases/Signlanguage/details/rwth-boston-104/index.php)
+- **How2Sing-dwpose**: 美国连续手语数据集，基于 How2Sign 官方数据集子集优化过的骨骼点数据，获取途径：[https://huggingface.co/datasets/FangSen9000/How2Sign-dwpose](https://huggingface.co/datasets/FangSen9000/How2Sign-dwpose)
+- **B-F-H 2D KeyPoints**: How2Sign 数据集的一个子集，获取途径：[https://how2sign.github.io/#download](https://how2sign.github.io/#download)
+- **MS-ASL**: 美国孤立词手语数据集，来源于 Microsoft Research，获取途径：[https://www.microsoft.com/en-us/research/project/ms-asl/](https://www.microsoft.com/en-us/research/project/ms-asl/)
+- **WLASL**: 美国孤立词手语数据集，来源于 Australian National University，获取途径：[https://dxli94.github.io/WLASL/](https://dxli94.github.io/WLASL/)
+- **CE-CSL**: 中文连续手语数据集，来源于哈尔滨工程大学智能科学与工程学院，获取途径：[https://arxiv.org/abs/2409.11960](https://arxiv.org/abs/2409.11960)
+
+> [!IMPORTANT]
+> 请注意，这些数据集的使用需遵循其各自的发布协议。
+> AetherSign **不会**重新分发原始数据集。
+> 如果您希望获取这些数据，请访问官方数据集页面进行申请，并严格遵守相关的使用条款。
 
 ### 8.3 贡献者
 
