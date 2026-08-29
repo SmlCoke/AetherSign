@@ -330,6 +330,36 @@ AetherSign 由 **PeakDragonSoar团队** 主导开发。
 
 感谢所有团队成员，正是他们在 AetherSign 的开发、部署、性能优化以及竞赛参赛等各个阶段付出的辛勤努力，才让这个项目得以完善。
 
+## 📚 IX. 引用
+
+如果 AetherSign 对您的研究、项目或学术工作有所帮助，请考虑引用本仓库。
+
+引用元数据通过 [`CITATION.cff`](CITATION.cff) 提供。您可以使用 GitHub 的“Cite this repository”（引用此仓库）功能，以支持的格式生成引用信息。
+
+```bibtex
+@software{aethersign2026,
+author  = {Feng, Jun and Yang, Jinlong and Zhang, Chengxiang},
+title   = {AetherSign: High-Dynamic Real-Time Sign Language Recognition on Ultra-Low-Compute Robotic Platforms},
+year    = {2026}
+}
+```
+
+若未来发布了关于 AetherSign 的经同行评审的学术论文，我们将相应更新推荐的引用方式。
+
+## ⚖️ X. 许可证
+
+除非另有说明，为 AetherSign 开发的原始源代码均基于 **Apache License 2.0** 发布。详情请参阅 [LICENSE](LICENSE)。
+
+Apache License 2.0 仅适用于 AetherSign 贡献者有权授予该许可证的材料。它不自动适用于本项目引用或使用的第三方软件、预训练模型、数据集、供应商 SDK 组件、商标、徽标或其他外部资产。
+
+具体而言：
+
+* SmartSens / A1 Vision SDK 及相关供应商组件不由本仓库分发，且仍受各自供应商条款的约束；
+* 第三方教师模型和开源项目保留其原始许可证；
+* 第三方数据集不进行重新分发，且仍受各自发布协议的约束；
+* 第三方徽标、商标及归档的竞赛资产仍归其各自所有者所有。
+
+详情请参阅 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ![](./docs/assets/posters/aethersign-poster-edge.png)
 

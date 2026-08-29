@@ -329,6 +329,38 @@ AetherSign was developed by **Team PeakDragonSoar**.
 
 We thank every team member whose hard work across the development, deployment, performance optimization, and competition stages made AetherSign possible.
 
+## 📚 IX. Citation
+
+If AetherSign is useful for your research, project, or academic work, please consider citing this repository.
+
+Citation metadata is provided through [`CITATION.cff`](CITATION.cff). GitHub's **Cite this repository** function can be used to generate citation information in supported formats.
+
+```bibtex
+@software{aethersign2026,
+  author  = {Feng, Jun and Yang, Jinlong and Zhang, Chengxiang},
+  title   = {AetherSign: High-Dynamic Real-Time Sign Language Recognition on Ultra-Low-Compute Robotic Platforms},
+  year    = {2026}
+}
+```
+
+If a peer-reviewed publication describing AetherSign becomes available in the future, the preferred citation will be updated accordingly.
+
+## ⚖️ X. License
+
+Unless otherwise stated, the original source code developed for AetherSign is released under the **Apache License 2.0**. See [LICENSE](LICENSE) for details.
+
+The Apache License 2.0 applies only to materials for which the AetherSign contributors have the right to grant such a license. It does not automatically apply to third-party software, pretrained models, datasets, vendor SDK components, trademarks, logos, or other external assets referenced by or used with this project.
+
+In particular:
+
+* the SmartSens / A1 Vision SDK and related vendor components are not distributed by this repository and remain subject to their respective vendor terms;
+* third-party teacher models and open-source projects retain their original licenses;
+* third-party datasets are not redistributed and remain subject to their respective release agreements;
+* third-party logos, trademarks, and archived competition assets remain the property of their respective owners.
+
+For details, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+
 ![](./docs/assets/posters/aethersign-poster-edge.png)
 
 *Between limited compute and the physical world, we hope to find a lighter, faster, and more reliable path for human–machine communication—so that every motion can reach the meaning it carries.*
