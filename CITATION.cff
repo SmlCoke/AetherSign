@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use AetherSign in your research or project, please cite this software."
+title: "AetherSign: High-Dynamic Real-Time Sign Language Recognition on Ultra-Low-Compute Robotic Platforms"
+type: software
+
+authors:
+  - given-names: "Jun"
+    family-names: "Feng"
+    alias: "SmlCoke"
+    affiliation: "Shanghai Jiao Tong University"
+
+  - given-names: "Jinlong"
+    family-names: "Yang"
+    alias: "sui-yu-x"
+    affiliation: "Shanghai Jiao Tong University"
+
+  - given-names: "Chengxiang"
+    family-names: "Zhang"
+    alias: "zhangchengxiang316"
+    affiliation: "Shanghai Jiao Tong University"
+
+repository-code: "https://github.com/SmlCoke/AetherSign"
+
+license: "Apache-2.0"
+
+keywords:
+  - sign-language-recognition
+  - hand-landmark
+  - edge-ai
+  - embedded-ai
+  - computer-vision
+  - NPU
+  - robotics
+
+abstract: >-
+  AetherSign is an edge Chinese sign-language recognition system designed
+  for high-dynamic robotic interaction scenarios. The system follows a
+  Sign-to-Skeleton-to-Gloss pipeline and performs palm detection, hand
+  landmark estimation, and isolated sign classification on an
+  ultra-low-compute embedded NPU platform.
