@@ -2,6 +2,8 @@
 
 <div align="center">
 
+**简体中文** | [English](./README_EN.md)
+
 <img src="./docs/assets/aethersign-hero.svg" alt="AetherSign — 从动作到语义的端侧手语识别系统" width="100%" />
 
 <br />
@@ -194,7 +196,8 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 
 ```text
 AetherSign/
-├── README.md                         # 项目主页
+├── README.md                         # 中文项目主页
+├── README_EN.md                      # English project homepage
 ├── docs/
 │   ├── assets/                       # README 与答辩视觉素材
 │   ├── project/                      # 最新项目背景与进展     
