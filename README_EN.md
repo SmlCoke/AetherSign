@@ -129,9 +129,11 @@ This repository serves as a version archive for project code, models, and docume
 
 - Fecyl A1 Vision development kit and SmartSens SC132GS Sensor;
 - The `A1_SDK_SC132GS/smartsens_sdk` compilation environment obtained through official or other legally authorized channels;
-- On-board models, LUTs, and OSD resource files that you have the right to use.
+- AetherSign on-device models and OSD resources from an official Release, plus the LUT obtained from an authorized SDK environment.
 
 The current latest on-board version is located in [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/). For full parameter descriptions and license boundaries, see its [README](./src/ssne_ai_demo/bak/final/README.md). For an overview of the edge-side archive, see [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md).
+
+Runtime assets for all four checkpoints are published separately as GitHub Release Assets. See [`docs/release/README.md`](./docs/release/README.md) for download URLs, SHA-256 verification, and installation. Release packages do not contain `colorLUT.sscl` or any vendor SDK material.
 
 
 ### 4.2 Integrate with the A1 SDK

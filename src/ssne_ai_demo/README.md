@@ -4,7 +4,7 @@
 
 `bak/` 下的四个公开端侧调度程序版本已经过许可证边界清理：公共 Git **仅保留可公开发布的 AetherSign 团队原创源码与项目文档**，它们是用于说明各比赛阶段实现的源码归档，**不是可脱离厂商 SDK 独立编译的完整应用**。
 
-为避免重新分发受厂商条款约束的材料，公共历史中不包含部分构建配置、程序入口、OSD、Pipeline 集成文件及其修改版本；模型、LUT、OSD 标签等运行资产也继续仅在团队本地保存，不由 Git 公开跟踪。四个版本 README 中原有的编译和运行命令只适用于团队本地保留的完整目录。
+为避免重新分发受厂商条款约束的材料，公共历史中不包含部分构建配置、程序入口、OSD、Pipeline 集成文件及其修改版本；模型、LUT、OSD 标签等运行资产也不由 Git 跟踪。经权利核验、允许公开的模型与 OSD 标签通过 GitHub Release Assets 单独发布；`colorLUT.sscl` 和厂商材料仍须从合法 SDK 环境取得。四个版本 README 中原有的编译和运行命令只适用于团队本地保留的完整目录。
 
 完整可编译环境由以下内容共同组成：
 
@@ -13,6 +13,19 @@
 3. 用户有权使用的**模型和其他运行资产**。
 
 如需复现，请**先取得相应厂商 SDK 的合法使用许可**，再通过本仓库 Issue 联系维护者，说明所用 SDK 版本、硬件版本和目标 checkpoint，以获取文件放置方式、兼容性核验等复现指导，以及可提供的团队原创组件。请勿在公开 Issue 上传 SDK 文件、许可证凭据或其他厂商材料。团队不承诺、也不会公开分发厂商来源文件或其修改版本。
+
+## 运行资产下载
+
+首个正式 Release 发布后，可使用稳定文件名下载对应 checkpoint 的模型和 OSD 资产：
+
+| Checkpoint | Latest Release Asset |
+| --- | --- |
+| `final` | [`aethersign-app-assets-final.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-final.zip) |
+| `half-final` | [`aethersign-app-assets-half-final.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-half-final.zip) |
+| `preminilary` | [`aethersign-app-assets-preminilary.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-preminilary.zip) |
+| `vertical` | [`aethersign-app-assets-vertical.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-vertical.zip) |
+
+固定 tag 下载、SHA-256 校验、REST API 和安装命令见 [发布与运行资产接口指南](../../docs/release/README.md)。所有 ZIP 均以 `app_assets/` 为安装目录根，并明确排除 `colorLUT.sscl` 与厂商 SDK 材料。
 
 ## 版本目录
 

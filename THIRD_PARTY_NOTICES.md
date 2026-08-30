@@ -92,6 +92,14 @@ Whenever external pretrained weights, model assets, MANO resources, or similar f
 
 Unless explicitly stated otherwise, such third-party model assets are not distributed as part of AetherSign.
 
+### Official Runtime Release Assets
+
+Official AetherSign GitHub Releases may distribute a reviewed allowlist of on-device model binaries and team-created OSD assets separately from the Git history. Every package must include a machine-readable manifest, SHA-256 checksums, this notice, and the repository license. Inclusion in a Release Asset does not change any applicable third-party or upstream terms.
+
+Historical checkpoint models may contain converted or modified outputs based on Apache-2.0-licensed MediaPipe models. Maintainers must verify the exact provenance, redistribution rights, required attribution, and modification notices before publishing each asset. Assets not present in the reviewed release manifest are not distributed through this mechanism.
+
+Vendor SDK materials, including `colorLUT.sscl`, SDK libraries, headers, toolchain files, firmware, and integration code, are explicitly excluded from AetherSign Release Assets and must be obtained through an authorized vendor channel.
+
 ## 6. Competition Materials, Logos, and Trademarks
 
 Third-party trademarks, organization names, competition logos, company logos, screenshots, product names, and similar materials that may appear in archived documentation remain the property of their respective owners.

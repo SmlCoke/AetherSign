@@ -6,6 +6,8 @@
 > 本目录在公共 Git 中仅保留可公开发布的 PeakDragonSoar 团队原创组件。出于厂商 SDK 许可边界考虑，部分构建配置、程序入口、OSD、Pipeline 集成文件，以及其修改版本未纳入公共历史。因此，下文现有的编译命令仅适用于团队本地保留的完整目录；**公开部分代码无法直接编译运行**。
 >
 > 完整可编译环境由两部分组成：本仓库**公开的 AetherSign 原创组件**，以及用户**通过合法授权渠道取得的厂商 SDK/集成文件**。请先取得相应 SDK 使用许可，再通过仓库 Issue 联系维护者获取复现指导和可提供的团队原创组件。请勿在公开 Issue 上传 SDK 文件、许可证凭据或其他厂商材料。团队不承诺、也不会公开分发厂商来源文件或其修改版本。
+>
+> 本 checkpoint 经审核允许公开的模型资产通过 [`aethersign-app-assets-half-final.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-half-final.zip) 单独提供；下载与校验说明见 [发布接口文档](../../../../docs/release/README.md)。资产包不包含厂商 SDK 材料。
 
 ## I. 代码简介
 
@@ -25,7 +27,7 @@ D:\Docker\project\smartsen\data\A1_SDK_SC132GS\smartsens_sdk\output\opt\m1_sdk\u
 
 - （古老）最开始 Palm Detector 模型上板踩坑总结出来的经验：[PALM_DEBUGGING_NOTES.md](./PALM_DEBUGGING_NOTES.md)
 - SLR 手语识别系统工作流程说明：[SLR_WORKFLOW.md](./SLR_WORKFLOW.md)
-- SLR 性能测试说明：[SLR_PERFORMANCE_TESTING.md](./SLR_PERFORMANCE_TESTING.md)
+- Performance Monitor 使用说明：[PERFORMANCE_MONITOR_USAGE.md](./PERFORMANCE_MONITOR_USAGE.md)
 
 
 ## II. 文件目录结构

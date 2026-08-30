@@ -22,3 +22,8 @@ reports/
 
 # model file
 models/
+
+# local release-maintainer files
+/docs/release/workflow.md
+/scripts/prepare-release-assets.ps1
+/release/app-assets-source-manifest.json

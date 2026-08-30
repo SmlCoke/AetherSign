@@ -129,9 +129,11 @@ AetherSign 实时手语识别系统上板后的工作表现如下。
 
 - 飞凌微 A1 Vision 开发套件与思特威 SC132GS Sensor；
 - 通过官方或其他合法授权渠道取得的 `A1_SDK_SC132GS/smartsens_sdk` 编译环境；
-- 用户有权使用的板端模型、LUT 与 OSD 资源文件。
+- 从官方 Release 获取的 AetherSign 板端模型与 OSD 资源，以及从合法 SDK 环境取得的 LUT。
 
 当前最新板端版本位于 [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/)，完整参数说明、许可证边界见其 [README](./src/ssne_ai_demo/bak/final/README.md)。端侧归档总览见 [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md)。
+
+四个 checkpoint 的运行资产通过 GitHub Release Assets 单独发布；下载、SHA-256 校验与安装方式见 [`docs/release/README.md`](./docs/release/README.md)。Release 包不包含 `colorLUT.sscl` 或任何厂商 SDK 材料。
 
 ### 4.2 集成至 A1 SDK
 
