@@ -96,6 +96,8 @@ Unless explicitly stated otherwise, such third-party model assets are not distri
 
 Official AetherSign GitHub Releases may distribute a reviewed allowlist of on-device model binaries and team-created OSD assets separately from the Git history. Every package must include a machine-readable manifest, SHA-256 checksums, this notice, and the repository license. Inclusion in a Release Asset does not change any applicable third-party or upstream terms.
 
+Official Releases may also provide a separate archive of the versioned `models/` directory when every included ONNX model, A1 model binary, and related model-definition or inference file has been reviewed and confirmed redistributable. This project model archive is distinct from the per-checkpoint runtime packages and does not include training datasets or vendor SDK materials.
+
 Historical checkpoint models may contain converted or modified outputs based on Apache-2.0-licensed MediaPipe models. Maintainers must verify the exact provenance, redistribution rights, required attribution, and modification notices before publishing each asset. Assets not present in the reviewed release manifest are not distributed through this mechanism.
 
 Vendor SDK materials, including `colorLUT.sscl`, SDK libraries, headers, toolchain files, firmware, and integration code, are explicitly excluded from AetherSign Release Assets and must be obtained through an authorized vendor channel.

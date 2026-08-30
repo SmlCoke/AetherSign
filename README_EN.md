@@ -133,7 +133,7 @@ This repository serves as a version archive for project code, models, and docume
 
 The current latest on-board version is located in [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/). For full parameter descriptions and license boundaries, see its [README](./src/ssne_ai_demo/bak/final/README.md). For an overview of the edge-side archive, see [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md).
 
-Runtime assets for all four checkpoints are published separately as GitHub Release Assets. See [`docs/release/README.md`](./docs/release/README.md) for download URLs, SHA-256 verification, and installation. Release packages do not contain `colorLUT.sscl` or any vendor SDK material.
+Runtime assets for all four checkpoints and a complete versioned `models/` archive are published separately as GitHub Release Assets. See [`docs/release/README_EN.md`](./docs/release/README_EN.md) for download URLs, SHA-256 verification, installation, and extraction. Release packages do not contain `colorLUT.sscl` or any vendor SDK material.
 
 
 ### 4.2 Integrate with the A1 SDK

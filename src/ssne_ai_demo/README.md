@@ -24,8 +24,9 @@
 | `half-final` | [`aethersign-app-assets-half-final.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-half-final.zip) |
 | `preminilary` | [`aethersign-app-assets-preminilary.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-preminilary.zip) |
 | `vertical` | [`aethersign-app-assets-vertical.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-app-assets-vertical.zip) |
+| 项目完整模型归档 | [`aethersign-models-archive.zip`](https://github.com/SmlCoke/AetherSign/releases/latest/download/aethersign-models-archive.zip) |
 
-固定 tag 下载、SHA-256 校验、REST API 和安装命令见 [发布与运行资产接口指南](../../docs/release/README.md)。所有 ZIP 均以 `app_assets/` 为安装目录根，并明确排除 `colorLUT.sscl` 与厂商 SDK 材料。
+固定 tag 下载、SHA-256 校验和安装命令见 [运行资产与模型归档接口指南](../../docs/release/README.md)。四个 checkpoint ZIP 均以 `app_assets/` 为安装目录根，并明确排除 `colorLUT.sscl` 与厂商 SDK 材料；项目模型归档则以 `models/` 为根，用于保留各阶段 ONNX、A1 模型及相关团队原创模型代码，不应直接安装到单个 checkpoint。
 
 ## 版本目录
 
