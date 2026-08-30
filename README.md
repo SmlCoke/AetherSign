@@ -125,18 +125,17 @@ AetherSign 实时手语识别系统上板后的工作表现如下。
 
 ### 4.1 前置条件
 
-本仓库是项目代码、模型和文档的版本档案，**不能脱离厂商 SDK 独立编译**。开始前请准备：
+本仓库是项目代码、模型和文档的版本档案。`src/ssne_ai_demo/bak/` 下的四个开放版本已按许可证边界清理，仅保留可公开发布的 AetherSign 团队原创组件，**不能脱离厂商 SDK 作为完整应用独立编译**。开始前请准备：
 
 - 飞凌微 A1 Vision 开发套件与思特威 SC132GS Sensor；
-- `A1_SDK_SC132GS/smartsens_sdk` 编译环境；
-- 厂商 SDK 头文件，尤其是 `ssne_api.h` 与 `osd_lib_api.h`；
-- 板端模型与 OSD 资源文件。
+- 通过官方或其他合法授权渠道取得的 `A1_SDK_SC132GS/smartsens_sdk` 编译环境；
+- 用户有权使用的板端模型、LUT 与 OSD 资源文件。
 
-当前最新板端版本位于 [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/)，完整参数说明见其 [README](./src/ssne_ai_demo/bak/final/README.md)。
+当前最新板端版本位于 [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/)，完整参数说明、许可证边界见其 [README](./src/ssne_ai_demo/bak/final/README.md)。端侧归档总览见 [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md)。
 
 ### 4.2 集成至 A1 SDK
 
-将 `final` 版本的代码放入 SDK 的应用目录：
+在**已合法取得厂商 SDK 与所需集成文件的前提**下，将公共 `final` 目录下的 AetherSign 原创组件与相应厂商文件组合到 SDK 的应用目录，例如：
 
 ```text
 A1_SDK_SC132GS/
@@ -168,6 +167,9 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 构建完成后，按照厂商工具链流程将镜像烧录至 A1 开发板。SDK 的日常增量编译、镜像位置与启动链路可参考 [`docs/sdk/quick_start.md`](./docs/sdk/quick_start.md)；容器环境见 [`docs/sdk/Docker容器与镜像编译.md`](./docs/sdk/Docker容器与镜像编译.md)。
 
 ### 4.4 板端运行
+
+> [!ATTENTION]
+> 以下命令仅适用于按上述许可证边界还原的本地完整目录。
 
 推荐使用启动脚本：
 
@@ -211,7 +213,7 @@ AetherSign/
     └── ssne_ai_demo/
         ├── README.md                 # 端侧程序版本索引
         └── bak/
-            ├── final/                # 当前最新完整板端链路
+            ├── final/                # 当前最新板端链路（已按照许可证边界清理）
             ├── half-final/           # 分赛区决赛版本（历史目录名）
             ├── preminilary/          # 初赛版本（历史目录名）
             └── vertical/             # 竖屏 / 方向实验版本
@@ -354,7 +356,7 @@ Apache License 2.0 仅适用于 AetherSign 贡献者有权授予该许可证的�
 
 具体而言：
 
-* SmartSens / A1 Vision SDK 及相关供应商组件不由本仓库分发，且仍受各自供应商条款的约束；
+* SmartSens / A1 Vision SDK 及相关供应商组件不由本仓库分发，且仍受各自供应商条款的约束；`src/ssne_ai_demo/bak/` 下的公共 checkpoint 已移除不适合重新分发的构建、入口、OSD 与 Pipeline 集成文件；具体复现边界与联系流程见 [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md)。
 * 第三方教师模型和开源项目保留其原始许可证；
 * 第三方数据集不进行重新分发，且仍受各自发布协议的约束；
 * 第三方徽标、商标及归档的竞赛资产仍归其各自所有者所有。

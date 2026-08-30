@@ -1,0 +1,5 @@
+# Vendor/SDK-derived integration headers kept local only
+/common.hpp
+/log.hpp
+/osd-device.hpp
+/utils.hpp

@@ -125,18 +125,18 @@ The following results show the performance of the AetherSign real-time sign lang
 
 ### 4.1 Prerequisites
 
-This repository is a version archive of the project's code, models, and documentation. It **cannot be built independently of the vendor SDK**. Before getting started, prepare:
+This repository serves as a version archive for project code, models, and documentation. The four open versions under `src/ssne_ai_demo/bak/` have been cleaned according to license boundaries, retaining only the AetherSign team’s original components that are permitted for public release; **they cannot be independently compiled as a complete application without the vendor SDK**. Before starting, please prepare the following:
 
-- A Flyingchip A1 Vision development kit and SmartSens SC132GS sensor;
-- The `A1_SDK_SC132GS/smartsens_sdk` build environment;
-- Vendor SDK headers, especially `ssne_api.h` and `osd_lib_api.h`;
-- On-device models and OSD resource files.
+- Fecyl A1 Vision development kit and SmartSens SC132GS Sensor;
+- The `A1_SDK_SC132GS/smartsens_sdk` compilation environment obtained through official or other legally authorized channels;
+- On-board models, LUTs, and OSD resource files that you have the right to use.
 
-The latest on-device version is located in [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/). For a complete parameter reference, see its [README](./src/ssne_ai_demo/bak/final/README.md) (Chinese).
+The current latest on-board version is located in [`src/ssne_ai_demo/bak/final/`](./src/ssne_ai_demo/bak/final/). For full parameter descriptions and license boundaries, see its [README](./src/ssne_ai_demo/bak/final/README.md). For an overview of the edge-side archive, see [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md).
+
 
 ### 4.2 Integrate with the A1 SDK
 
-Place the `final` version of the code in the SDK application directory:
+Under the premise that the manufacturer’s SDK and required integration files have been legally obtained, combine the AetherSign original components from the public `final` directory with the corresponding manufacturer files into the application directory of the SDK, for example:
 
 ```text
 A1_SDK_SC132GS/
@@ -168,6 +168,9 @@ cd A1_SDK_SC132GS/smartsens_sdk/
 After the build completes, flash the image to the A1 development board using the vendor toolchain. For incremental builds, image locations, and the boot process, see [`docs/sdk/quick_start.md`](./docs/sdk/quick_start.md) (Chinese). For the container environment, see [`docs/sdk/Docker容器与镜像编译.md`](./docs/sdk/Docker容器与镜像编译.md) (Chinese).
 
 ### 4.4 Run on the Device
+
+> [!ATTENTION]
+> The following command is only applicable to the local complete directory restored according to the license boundaries mentioned above.
 
 The startup script is recommended:
 
@@ -211,7 +214,7 @@ AetherSign/
     └── ssne_ai_demo/
         ├── README.md                 # On-device application version index
         └── bak/
-            ├── final/                # Latest complete on-device pipeline
+            ├── final/                # The current latest board-end link (cleared according to license boundaries)
             ├── half-final/           # Regional-final version (historical directory name)
             ├── preminilary/          # Preliminary-stage version (historical directory name)
             └── vertical/             # Portrait-orientation experiments
@@ -353,7 +356,7 @@ The Apache License 2.0 applies only to materials for which the AetherSign contri
 
 In particular:
 
-* the SmartSens / A1 Vision SDK and related vendor components are not distributed by this repository and remain subject to their respective vendor terms;
+* the SmartSens / A1 Vision SDK and related vendor components are not distributed by this repository and remain subject to their respective vendor terms; public checkpoints under `src/ssne_ai_demo/bak/` have removed build, entry, OSD, and Pipeline integration files that are unsuitable for redistribution; for specific reproduction boundaries and contact procedures, see [`src/ssne_ai_demo/README.md`](./src/ssne_ai_demo/README.md);
 * third-party teacher models and open-source projects retain their original licenses;
 * third-party datasets are not redistributed and remain subject to their respective release agreements;
 * third-party logos, trademarks, and archived competition assets remain the property of their respective owners.

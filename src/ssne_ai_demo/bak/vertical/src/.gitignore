@@ -1,0 +1,4 @@
+# Vendor/SDK-derived integration sources kept local only
+/osd-device.cpp
+/pipeline_image.cpp
+/utils.cpp

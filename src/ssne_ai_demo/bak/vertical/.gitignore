@@ -1,5 +1,6 @@
-# models
-app_assets/
+# Vendor/SDK-derived integration files kept local only
+/CMakeLists.txt
+/main.cpp
 
 # temp ai prompt/auxiliary files
 *prompt*
